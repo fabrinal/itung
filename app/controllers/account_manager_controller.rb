@@ -3,7 +3,6 @@ class AccountManagerController < ApplicationController
   def initialize
     @total_expense = 0
     @total_income = 0
-    @expense_accounts = ""
   end
 
   def summarize_account
@@ -11,7 +10,7 @@ class AccountManagerController < ApplicationController
         if account.account_type == "income"
           @total_income += account.value
         else
-          @total_expense += (account.value )
+          @total_expense += account.value
         end
     }
   end
