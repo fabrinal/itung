@@ -1,4 +1,3 @@
-
-<%= number_to_currency(@total_income,precision:2) %> </br>
-<%= number_to_currency(@total_expense,precision:2) %><br>
-<%= number_to_currency(@balance,precision:2) %>
+<%= number_to_currency(@total_income.to_i,precision:2) %> </br>
+<%= number_to_currency(@total_expense.to_i,precision:2) %><br>
+<%= number_to_currency(@balance.to_i,precision:2) %>

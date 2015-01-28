@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :account_type %><br>
-    <%= f.text_field :account_type %>
+    <%= f.select :account_type, options_for_select(["income","expense"]) %>
   </div>
   <div class="field">
     <%= f.label :value %><br>
-    <%= f.text_field :value %>
+    <%= f.number_field :value %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

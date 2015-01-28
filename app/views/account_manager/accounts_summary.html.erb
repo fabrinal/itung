@@ -1,5 +1,12 @@
-# <%= @total_income %> <br>
-# <%= @total_expense %><br>
-# <%= @balance %>
 
-<%= yield %>
+<div id="expense">
+  <%= render 'single_account_summary', accounts: @expense_accounts %>
+  --------------------------------------------------------------------
+</div>
+<div id="income">
+   <%= render 'single_account_summary', accounts: @income_accounts %>
+   -------------------------------------------------------------------
+</div>
+
+
+
