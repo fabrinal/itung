@@ -7,6 +7,12 @@
    <%= render 'single_account_summary', accounts: @income_accounts %>
    -------------------------------------------------------------------
 </div>
+<div>
+  <b> Total income  :</b>&nbsp<%= number_to_currency(@total_income) %><br>
+  <b> Total expense :</b>&nbsp<%= number_to_currency(@total_expense) %><br>
+  <b> Balance       :</b>&nbsp<%= number_to_currency(@balance) %><br>
+</div>
 
+<br><%= link_to 'Back', accounts_path %>
 
 

@@ -11,14 +11,14 @@ class AccountManagerController < ApplicationController
         if account.account_type == "income"
           @total_income += account.value
         else
-          @total_expense += (account.value * -1)
+          @total_expense += (account.value )
         end
     }
   end
 
   def accounts_summary
     summarize_account
-    @balance = @total_income + @total_expense
+    @balance = @total_income - @total_expense
     @expense_accounts =  Account.where(:account_type => "expense")
     @income_accounts =  Account.where(:account_type => "income")
     respond_to do |format|
