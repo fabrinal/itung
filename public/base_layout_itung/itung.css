@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header{
+   width: 100%;
+    position: fixed;
+    z-index: 500000;
+    height: 50px;
+    background: black;
+}
+
+.landing_area, .itung{
+   position: relative;
+    z-index: 500;
+    background: blue;
+    height: 710px;
+}
+
+.itung{
+    background: red;
+    height: 720px;
+}
+
+#summary{
+    background-color: green;
+    height: 50px;
+}
+
+footer{
+    background-color: yellow;
+    height: 50px;
+}
+
+table{
+    padding-top: 20px;
+    width: 100%
+}
+
+tr{
+    background: white;
+}
+
+.add_account{
+    width: 350px;
+    height: 250px;
+}
