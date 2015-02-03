@@ -1,0 +1,12 @@
+ <% accounts.each { |account|   %>
+      <p>
+        <ul>
+            <li> Name   : <%= account.account_name %></li>
+            <li> Type   : <%= account.account_type %></li>
+            <li> Value  : <%= number_to_currency(account.value) %></li>
+            <li> Desc   : <%= account.description %></li>
+        </ul> 
+        ********************  
+      </p>
+      
+  <% } %>
