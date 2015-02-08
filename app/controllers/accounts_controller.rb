@@ -4,6 +4,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
+
     @accounts = Account.all
   end
 
@@ -23,12 +24,14 @@ class AccountsController < ApplicationController
 
   # POST /accounts
   # POST /accounts.json
+  # When you're creating the cookies, make sure you always send it as an id
   def create
     @account = Account.new(account_params)
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+        format.html { redirect_to "/"}
+        # format.html { redirect_to @account, notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
