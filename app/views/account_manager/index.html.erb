@@ -1,23 +1,32 @@
-<div>
-   <%= render 'form'%>
+<div id="account_expenses">
+  <%= render 'form', locals: {identity: @record_id,type: "expense"} %>
 </div>
 
-<div id="expense">
+<div id="account_income">
+  <%= render 'form', locals: {identity: @record_id,type: "income"} %>
+</div>
+
+<% if @accounts.present? %>
+<div class="account_result" id="expenses">
+  <% if @expense_accounts.present? %>
   <%= render 'single_account_summary', accounts: @expense_accounts %>
-  --------------------------------------------------------------------
+  <% end %>
 </div>
-<div id="income">
-   <%= render 'single_account_summary', accounts: @income_accounts %>
-   -------------------------------------------------------------------
+
+<div class="account_result" id="incomes">
+  <% if @income_accounts.present? %>
+  <%= render 'single_account_summary', accounts: @income_accounts %>
+  <% end %>
 </div>
-<div>
+
+<div id="summary" class="center-global">
   <b> Total income  :</b>&nbsp<%= number_to_currency(@total_income) %><br>
   <b> Total expense :</b>&nbsp<%= number_to_currency(@total_expense) %><br>
   <b> Balance       :</b>&nbsp<%= number_to_currency(@balance) %><br>
 </div>
 
-<br><%= link_to 'Back', accounts_path %>
-
 <h1>Testing my controller</h1>
 <br>
 <%= @record_id %>
+
+<% end %>

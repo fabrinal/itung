@@ -1,34 +1,35 @@
 <%= form_for(@account) do |f| %>
-<h1>Call by index.html</h1>
-  <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+    <% if @account.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-      <ul>
-      <% @account.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @account.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :account_name %><br>
+      <%= f.text_field :account_name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :account_name %><br>
-    <%= f.text_field :account_name %>
-  </div>
-  <div class="field">
-    <%= f.label :account_type %><br>
-    <%= f.text_field :account_type %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.hidden_field :account_type, :value => locals[:type] %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :identity, :value => locals[:identity] %>
+    </div>
+    <div class="field">
+      <%= f.label :value %><br>
+      <%= f.text_field :value %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

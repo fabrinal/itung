@@ -27,7 +27,6 @@ class AccountsController < ApplicationController
   # When you're creating the cookies, make sure you always send it as an id
   def create
     @account = Account.new(account_params)
-
     respond_to do |format|
       if @account.save
         format.html { redirect_to "/"}
@@ -72,6 +71,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:account_name, :account_type, :value, :description)
+      params.require(:account).permit(:account_name, :account_type, :value, :description,:identity)
     end
 end
