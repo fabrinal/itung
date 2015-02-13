@@ -28,7 +28,7 @@ class AccountManagerController < ApplicationController
       @expense_accounts = @accounts.where(:account_type => "expense")
       respond_to do |format|
         format.html {
-          render :layout => 'summary'
+          render :layout => 'application'
         }
         format.json
       end
