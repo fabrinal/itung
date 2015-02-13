@@ -17,6 +17,12 @@ class AccountManagerController < ApplicationController
     end
     @record_id = cookies[:record_id]
     accounts_summary
+    respond_to do |format|
+      format.html {
+        render :layout => 'application'
+      }
+      format.json
+    end
   end
 
   def accounts_summary
@@ -26,12 +32,6 @@ class AccountManagerController < ApplicationController
       @balance = @total_income - @total_expense
       @income_accounts = @accounts.where(:account_type => "income")
       @expense_accounts = @accounts.where(:account_type => "expense")
-      respond_to do |format|
-        format.html {
-          render :layout => 'application'
-        }
-        format.json
-      end
     else
       @total_expense = 0;
       @total_income = 0;
