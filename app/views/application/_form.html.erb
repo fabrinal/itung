@@ -24,11 +24,11 @@
     </div>
     <div class="form-group">
       <%= f.label :value %><br>
-      <%= f.number_field :value %>
+      <%= f.number_field :value, class: 'text_field', step: 'any' %>
     </div>
     <div class="form-group">
       <%= f.label :description %><br>
-      <%= f.text_field :description %>
+      <%= f.text_area :description %>
     </div>
     <div class="form-group">
       <%= f.submit %>
