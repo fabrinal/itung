@@ -1,10 +1,13 @@
  <% accounts.each { |account|   %>
-      <p>
+     <p>
         <ul>
             <li> Name   : <%= account.account_name %></li>
             <li> Type   : <%= account.account_type %></li>
-            <li> Value  : <%= number_to_currency(account.value) %></li>
+            <li> Value  : <%= account.value %></li>
             <li> Desc   : <%= account.description %></li>
-        </ul> 
+        </ul>
+     <div class="delete_button">
+     <%= button_to "Delete", {:controller => :accounts, :action => 'destroy', :id => account.id }, :method => :delete %>
+     </div>
       </p>
   <% } %>

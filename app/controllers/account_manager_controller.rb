@@ -30,12 +30,12 @@ class AccountManagerController < ApplicationController
     if @accounts.present?
       summarize_account
       @balance = @total_income - @total_expense
-      @income_accounts = @accounts.where(:account_type => "income")
-      @expense_accounts = @accounts.where(:account_type => "expense")
+      @income_accounts = @accounts.where(:account_type => 'income')
+      @expense_accounts = @accounts.where(:account_type => 'expense')
     else
-      @total_expense = 0;
-      @total_income = 0;
-      @balance = 0;
+      @total_expense = 0
+      @total_income = 0
+      @balance = 0
     end
   end
 
@@ -45,12 +45,11 @@ class AccountManagerController < ApplicationController
 
   def summarize_account
     @accounts.each { |account|
-      if account.account_type == "income"
+      if account.account_type == 'income'
         @total_income += account.value
       else
         @total_expense += account.value
       end
     }
   end
-
 end

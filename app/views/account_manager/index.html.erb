@@ -2,57 +2,55 @@
 
   <div class="row">
     <div class="jumbotron">
-      <div class="col-md-4">
-        <h2>Ruby logo</h2>
-      </div>
-      <div class="col-md-4">
-        <h2>Rails logo</h2>
-      </div>
-      <div class="col-md-4">
-        <h2>PostgreSQL logo</h2>
-      </div>
-      <p>
-        Introduction of itung
-      </p>
+        <p>
+					Introducing itung, itung is bahasa of count, this super simple app can help you
+					to sum your expense, income, and automatically count the balance for you. Its made
+					on purpose to help (myself) learn create app in ruby. You can see what's inside this 
+					app on github repository, feel free to clone or you can made your own app based on itung.<br>
+					Happy learning ruby :)
+				</p>
     </div>
   </div>
 
-  <div class="row" id="itung">
-    <div class="col-lg-6 add_expense" id="account_expenses">
-      <%= render 'form', locals: {identity: @record_id, type: "expense"} %>
-      <div class="col-lg-12 account_result" id="expenses">
-        <h3>Expense List</h3>
-        <% if @expense_accounts.present? %>
-            <%= render 'single_account_summary', accounts: @expense_accounts %>
-        <% end %>
+  <div class="row add_accounts content" id="itung">
+    <div class="col-lg-6 " id="account_expenses">
+      <div class="col-lg-12">
+      <%= render 'form', locals: {identity: @record_id, type: 'expense'} %>
+      </div>
+      <div class="col-lg-12" id="expenses">
+				<div class="account_results">
+          <% if @expense_accounts.present? %>
+							<h3>Expense List</h3>
+              <%= render 'single_account_summary', accounts: @expense_accounts %>
+          <% end %>
+				</div>
       </div>
     </div>
-    <div class="col-lg-6 add_expense" id="account_income">
-      <%= render 'form', locals: {identity: @record_id, type: "income"} %>
-      <div class="col-lg-12 account_result" id="incomes">
-        <h3>Income list</h3>
-        <% if @income_accounts.present? %>
-            <%= render 'single_account_summary', accounts: @income_accounts %>
-        <% end %>
+    <div class="col-lg-6" id="account_income">
+      <div class="col-lg-12">
+      <%= render 'form', locals: {identity: @record_id, type: 'income'} %>
       </div>
-    </div>
-  </div>
-
-  <div class="row" id="summary">
-    <% if @accounts.present? %>
-        <div class="col-lg-12 summary">
-          <b> Total income :</b>&nbsp<%= number_to_currency(@total_income) %><br>
-          <b> Total expense :</b>&nbsp<%= number_to_currency(@total_expense) %><br>
-          <b> Balance :</b>&nbsp<%= number_to_currency(@balance) %><br>
+      <div class="col-lg-12" id="incomes">
+        <div class="account_results">
+          <% if @income_accounts.present? %>
+							<h3>Income list</h3>
+              <%= render 'single_account_summary', accounts: @income_accounts %>
+          <% end %>
         </div>
-    <% end %>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="row">
-  <footer class="col-lg-12 col-xs-12">
-    <br><br><br>
-  </footer>
+	<% if @accounts.present? %>
+  <div class="row content" id="summary">
+    
+<!--        <div class="col-lg-12 summary">-->
+					<div class="account_results">
+          <b> Total income :</b>&nbsp<%= @total_income %><br>
+          <b> Total expense :</b>&nbsp<%= @total_expense %><br>
+          <b> Balance :</b>&nbsp<%= @balance %><br>
+        	</div>
+<!--				</div>-->
   </div>
+	<% end %>
 </div>
