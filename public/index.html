@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="row">
+    <div class="jumbotron">
+        <p>
+          Introducing itung, itung is bahasa of count, this super simple app can help you
+          to sum your expense, income, and automatically count the balance for you. Its made
+          on purpose to help (myself) learn create app in ruby. You can see what's inside this 
+          app on <%= link_to 'github repository', 'https://github.com/fabrinal/itung', target: '_blank' %>
+          , feel free to clone or you can make your own app based on itung.<br>
+          Happy learning ruby :)
+        </p>
+    </div>
+  </div>
+
+  <div class="row add_accounts content" id="itung">
+    <div class="col-lg-6 " id="account_expenses">
+      <div class="col-lg-12">
+      <%= render 'form', locals: {identity: @record_id, type: 'expense'} %>
+      </div>
+      <div class="col-lg-12" id="expenses">
+        <div class="account_results">
+          <% if @expense_accounts.present? %>
+              <h3>Expense List</h3>
+              <%= render 'single_account_summary', accounts: @expense_accounts %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6" id="account_income">
+      <div class="col-lg-12">
+      <%= render 'form', locals: {identity: @record_id, type: 'income'} %>
+      </div>
+      <div class="col-lg-12" id="incomes">
+        <div class="account_results">
+          <% if @income_accounts.present? %>
+              <h3>Income list</h3>
+              <%= render 'single_account_summary', accounts: @income_accounts %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if @accounts.present? %>
+  <div class="row content" id="summary">
+          <div class="account_results">
+          <b> Total income :</b>&nbsp<%= @total_income %><br>
+          <b> Total expense :</b>&nbsp<%= @total_expense %><br>
+          <b> Balance :</b>&nbsp<%= @balance %><br>
+          </div>
+  </div>
+  <% end %>
+</div>
